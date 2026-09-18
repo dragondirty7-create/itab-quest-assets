@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>iTab Quest - UI Button Style Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
     :root {
         --deep-indigo: #000831;
@@ -13,32 +16,33 @@
         --ivory-buff: #EBD999;
         --fawn: #D1B0B3;
         --white: #FFFFFF;
+
+        --press-depth: 6px;
     }
 
     body {
-        background-color: var(--ivory-buff);
-        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 40px;
         display: flex;
         justify-content: center;
-        padding: 40px;
-        margin: 0;
+        background-color: var(--ivory-buff);
+        font-family: 'Inter', sans-serif;
     }
 
     .ui-board {
+        width: 100%;
+        max-width: 800px;
+        padding: 40px;
         background-color: var(--white);
         border: 4px solid var(--deep-indigo);
         border-radius: 24px;
-        padding: 40px;
-        max-width: 800px;
-        width: 100%;
         box-shadow: 0 12px 0 var(--fawn);
     }
 
     h2 {
+        margin: 0 0 30px;
         color: var(--deep-indigo);
         text-align: center;
-        margin-top: 0;
-        margin-bottom: 30px;
         font-size: 1.5rem;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -47,74 +51,91 @@
     .button-group {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
         justify-content: center;
+        gap: 20px;
         margin-bottom: 40px;
     }
 
-    /* Core Button Style */
+    /* Core button */
     .btn {
-        position: relative;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
+        padding: 15px 30px;
+        border: 3px solid var(--deep-indigo);
+        border-radius: 16px;
+        color: var(--white);
         font-family: 'Space Grotesk', 'Inter', sans-serif;
-        font-weight: 800;
+        font-weight: 700;
         font-size: 1.2rem;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: var(--white);
         text-decoration: none;
-        border: 3px solid var(--deep-indigo);
-        border-radius: 16px;
-        padding: 15px 30px;
         cursor: pointer;
-        transition: transform 0.1s active;
         user-select: none;
+        transition: transform 0.1s, box-shadow 0.1s, filter 0.1s;
     }
 
-    /* Press Effect */
+    .btn:hover {
+        filter: brightness(1.06);
+    }
+
+    /* Press: the button drops onto its shadow. */
     .btn:active {
-        transform: translateY(6px);
-        box-shadow: 0 0 0 transparent !important;
+        transform: translateY(var(--press-depth));
+        box-shadow: none;
     }
 
-    /* Primary Action (Play, Next, Continue) */
+    .btn:focus-visible {
+        outline: 3px solid var(--cerulean-blue);
+        outline-offset: 4px;
+    }
+
+    /* Primary action (Play, Continue, Next) */
     .btn-primary {
         background-color: var(--golden-yellow);
-        box-shadow: 0 6px 0 var(--pansy-purple);
+        box-shadow: 0 var(--press-depth) 0 var(--pansy-purple);
         color: var(--deep-indigo);
     }
 
-    /* Secondary Action (Learn, Practice, Levels, Rewards) */
+    /* Secondary action (Learn, Practice, Game, Levels, Rewards) */
     .btn-secondary {
         background-color: var(--cerulean-blue);
-        box-shadow: 0 6px 0 var(--deep-indigo);
+        box-shadow: 0 var(--press-depth) 0 var(--deep-indigo);
     }
 
-    /* Tertiary / Danger Action (Retry, Back) */
+    /* Navigation and corrections (Back, Retry) */
     .btn-tertiary {
         background-color: var(--pansy-purple);
-        box-shadow: 0 6px 0 var(--deep-indigo);
+        box-shadow: 0 var(--press-depth) 0 var(--deep-indigo);
     }
 
-    /* Utility Icons (Home, Settings, Help) */
+    /* Round utility buttons (Home, Settings, Help) */
     .btn-icon {
-        padding: 15px;
+        width: 60px;
+        height: 60px;
+        padding: 0;
         border-radius: 50%;
         background-color: var(--fawn);
-        box-shadow: 0 6px 0 var(--deep-indigo);
+        box-shadow: 0 var(--press-depth) 0 var(--deep-indigo);
         color: var(--deep-indigo);
-        font-size: 1.5rem;
-        line-height: 1;
     }
 
-    /* Placeholder SVG Icons */
     .icon {
         width: 24px;
         height: 24px;
+        flex-shrink: 0;
         fill: currentColor;
+    }
+
+    .btn-icon .icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .btn { transition: none; }
     }
 </style>
 </head>
@@ -123,40 +144,46 @@
 <div class="ui-board">
     <h2>Primary Actions</h2>
     <div class="button-group">
-        <button class="btn btn-primary">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <button type="button" class="btn btn-primary">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>
             Play
         </button>
-        <button class="btn btn-primary">Continue</button>
-        <button class="btn btn-primary">Next</button>
+        <button type="button" class="btn btn-primary">Continue</button>
+        <button type="button" class="btn btn-primary">Next</button>
     </div>
 
     <h2>Secondary Actions</h2>
     <div class="button-group">
-        <button class="btn btn-secondary">Learn</button>
-        <button class="btn btn-secondary">Practice</button>
-        <button class="btn btn-secondary">Game</button>
-        <button class="btn btn-secondary">Levels</button>
-        <button class="btn btn-secondary">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <button type="button" class="btn btn-secondary">Learn</button>
+        <button type="button" class="btn btn-secondary">Practice</button>
+        <button type="button" class="btn btn-secondary">Game</button>
+        <button type="button" class="btn btn-secondary">Levels</button>
+        <button type="button" class="btn btn-secondary">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             Rewards
         </button>
     </div>
 
-    <h2>Navigation & Corrections</h2>
+    <h2>Navigation &amp; Corrections</h2>
     <div class="button-group">
-        <button class="btn btn-tertiary">Back</button>
-        <button class="btn btn-tertiary">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        <button type="button" class="btn btn-tertiary">Back</button>
+        <button type="button" class="btn btn-tertiary">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
             Retry
         </button>
     </div>
 
     <h2>Utility Icons</h2>
     <div class="button-group">
-        <button class="btn btn-icon" aria-label="Home">🏠</button>
-        <button class="btn btn-icon" aria-label="Settings">⚙️</button>
-        <button class="btn btn-icon" aria-label="Help">❓</button>
+        <button type="button" class="btn btn-icon" aria-label="Home">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </button>
+        <button type="button" class="btn btn-icon" aria-label="Settings">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        </button>
+        <button type="button" class="btn btn-icon" aria-label="Help">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>
+        </button>
     </div>
 </div>
 
