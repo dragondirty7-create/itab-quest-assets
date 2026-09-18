@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iTab Quest - UI Button Style Sheet</title>
+<style>
+    :root {
+        --deep-indigo: #000831;
+        --pansy-purple: #6F0043;
+        --cerulean-blue: #29BDAD;
+        --golden-yellow: #FA9442;
+        --ivory-buff: #EBD999;
+        --fawn: #D1B0B3;
+        --white: #FFFFFF;
+    }
+
+    body {
+        background-color: var(--ivory-buff);
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+        margin: 0;
+    }
+
+    .ui-board {
+        background-color: var(--white);
+        border: 4px solid var(--deep-indigo);
+        border-radius: 24px;
+        padding: 40px;
+        max-width: 800px;
+        width: 100%;
+        box-shadow: 0 12px 0 var(--fawn);
+    }
+
+    h2 {
+        color: var(--deep-indigo);
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    /* Core Button Style */
+    .btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-family: 'Space Grotesk', 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--white);
+        text-decoration: none;
+        border: 3px solid var(--deep-indigo);
+        border-radius: 16px;
+        padding: 15px 30px;
+        cursor: pointer;
+        transition: transform 0.1s active;
+        user-select: none;
+    }
+
+    /* Press Effect */
+    .btn:active {
+        transform: translateY(6px);
+        box-shadow: 0 0 0 transparent !important;
+    }
+
+    /* Primary Action (Play, Next, Continue) */
+    .btn-primary {
+        background-color: var(--golden-yellow);
+        box-shadow: 0 6px 0 var(--pansy-purple);
+        color: var(--deep-indigo);
+    }
+
+    /* Secondary Action (Learn, Practice, Levels, Rewards) */
+    .btn-secondary {
+        background-color: var(--cerulean-blue);
+        box-shadow: 0 6px 0 var(--deep-indigo);
+    }
+
+    /* Tertiary / Danger Action (Retry, Back) */
+    .btn-tertiary {
+        background-color: var(--pansy-purple);
+        box-shadow: 0 6px 0 var(--deep-indigo);
+    }
+
+    /* Utility Icons (Home, Settings, Help) */
+    .btn-icon {
+        padding: 15px;
+        border-radius: 50%;
+        background-color: var(--fawn);
+        box-shadow: 0 6px 0 var(--deep-indigo);
+        color: var(--deep-indigo);
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    /* Placeholder SVG Icons */
+    .icon {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+    }
+</style>
+</head>
+<body>
+
+<div class="ui-board">
+    <h2>Primary Actions</h2>
+    <div class="button-group">
+        <button class="btn btn-primary">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            Play
+        </button>
+        <button class="btn btn-primary">Continue</button>
+        <button class="btn btn-primary">Next</button>
+    </div>
+
+    <h2>Secondary Actions</h2>
+    <div class="button-group">
+        <button class="btn btn-secondary">Learn</button>
+        <button class="btn btn-secondary">Practice</button>
+        <button class="btn btn-secondary">Game</button>
+        <button class="btn btn-secondary">Levels</button>
+        <button class="btn btn-secondary">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            Rewards
+        </button>
+    </div>
+
+    <h2>Navigation & Corrections</h2>
+    <div class="button-group">
+        <button class="btn btn-tertiary">Back</button>
+        <button class="btn btn-tertiary">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+            Retry
+        </button>
+    </div>
+
+    <h2>Utility Icons</h2>
+    <div class="button-group">
+        <button class="btn btn-icon" aria-label="Home">🏠</button>
+        <button class="btn btn-icon" aria-label="Settings">⚙️</button>
+        <button class="btn btn-icon" aria-label="Help">❓</button>
+    </div>
+</div>
+
+</body>
+</html>
