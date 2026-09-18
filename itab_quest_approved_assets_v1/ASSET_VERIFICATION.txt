@@ -106,6 +106,53 @@ branding/itabquest_logo_horizontal.png                              NEEDS REVIEW
    - Horizontal header: at least 2400 px wide.
 
 ------------------------------------------------------------------------------------------
+UI FEEDBACK POSES (added 2026-09-18)
+Filing rule from Michael: keep originals untouched, name and file them, and mark transparent
+assets NEEDS_ALPHA_CLEANUP. Michael will fix the transparency himself. No cleanup was done here.
+
+  Source:                  Gemini_Generated_Image_pgzk1apgzk1apgzk.jpeg (2814x1536 JPEG, 24-bit RGB, no
+                           alpha). A single sheet with three poses and captions painted in: "1. CORRECT",
+                           "2. TRY AGAIN", "3. HINT". The original is kept unchanged at the repo root.
+                           SHA-256 E976EFD910B48A5DF7FC0660030253A84641A30348E76D9FB0B194FAF8F4A7E9
+  How the three files were made:
+                           Exact pixel crops of the sheet: no resizing, no recoloring, no retouching.
+                           Each crop was compared with the source and 0 pixels differ. The cuts run
+                           through art-free gaps only: columns 1102 and 1969, and row 1277, which sits
+                           between the artwork (ends at row 1233) and the captions (start at row 1321).
+                           The captions are left out, because UI text is drawn in code. The gap between
+                           Try Again and Hint is narrow: the Try Again glow ends about 14 px before its
+                           cut.
+
+ui/ui_feedback_correct.png
+  Pixel dimensions:        1102x1277 (sheet x 0-1101)
+  Color mode:              RGB 8-bit, tagged sRGB
+  Alpha transparency:      no. The checkerboard is painted into the pixels, and also shows through Nim's
+                           wings and the glow and sparkle effects.
+  Transparency verified:   yes, verified that there is NO real alpha
+  Technical cleanup:       none (exact crop only)
+  SHA-256:                 4578163D3BF67EA6415DD836F688AD300D2F22F0E350DFE2C9142569E703699E
+  Result:                  NEEDS_ALPHA_CLEANUP
+
+ui/ui_feedback_try_again.png
+  Pixel dimensions:        867x1277 (sheet x 1102-1968)
+  Color mode:              RGB 8-bit, tagged sRGB
+  Alpha transparency:      no. The checkerboard is painted in, including through Nim's wings and glow.
+  Transparency verified:   yes, verified that there is NO real alpha
+  Technical cleanup:       none (exact crop only)
+  SHA-256:                 2210D85DF0C73FAB1F0ED0A62FBCE9E43AB1CA4D07D790284A22D20644DD4FC6
+  Result:                  NEEDS_ALPHA_CLEANUP
+
+ui/ui_feedback_hint.png
+  Pixel dimensions:        845x1277 (sheet x 1969-2813)
+  Color mode:              RGB 8-bit, tagged sRGB
+  Alpha transparency:      no. The checkerboard is painted in, including through Nim's wings, the glow
+                           and the light-bulb rays.
+  Transparency verified:   yes, verified that there is NO real alpha
+  Technical cleanup:       none (exact crop only)
+  SHA-256:                 ADADD9D9ADECCF370DF216443F883F99C00D4681DB7B791E36D50AF4A3967918
+  Result:                  NEEDS_ALPHA_CLEANUP
+
+------------------------------------------------------------------------------------------
 QUALITY GATE
   All 8 files present ........................ NO (4 of 8)
   Filenames exact ............................ yes, for the 4 present
