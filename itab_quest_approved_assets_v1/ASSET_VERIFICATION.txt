@@ -1,0 +1,119 @@
+iTab Quest - Approved Assets v1 - VERIFICATION REPORT
+Generated 2026-09-18 from the Gemini downloads in E:\tab game\
+
+OVERALL STATUS: NOT READY - 4 of 8 assets NEED REVIEW (re-export from Gemini)
+  PASS          4   bg_main_menu, bg_gameplay, bg_level_map, character_tavi_main
+  NEEDS REVIEW  4   character_nim_main, itabquest_logo_main, itabquest_logo_app_icon, itabquest_logo_horizontal
+  The 4 NEEDS REVIEW files are NOT in this folder. Nothing was invented or repainted to fill them.
+
+KEY FINDING ABOUT THE DOWNLOADS
+  All 8 downloaded files are JPEG images. That includes bg_menu.png and bg_gameplay.png, which are
+  JPEGs with a .png name. JPEG cannot store transparency, so none of the downloads had a real alpha
+  channel. The gray checkerboard in the character and logo images is painted into the pixels: two
+  grays at luminance ~100 and ~148, ~48 px squares, irregular in places.
+
+------------------------------------------------------------------------------------------
+backgrounds/bg_main_menu.png
+  Source:                  background.jpeg (2752x1536 JPEG). The bg_menu.png download is the same
+                           image at 1024x572 and was not used.
+  Pixel dimensions:        1920x1080
+  Color mode:              RGB 8-bit, tagged sRGB
+  Alpha transparency:      no (not required for backgrounds)
+  Transparency verified:   n/a
+  Technical cleanup:       Converted from JPEG to PNG. Scaled 2752x1536 -> 1920x1080 by a single uniform
+                           factor (0.703125, high-quality bicubic, no stretching). The source is slightly
+                           wider than 16:9, so 10.7 source px were trimmed from each side edge (about 0.4%
+                           of the width, edge scenery only).
+  SHA-256:                 21536B5E8D284B4C5A8C98FD577B89C21D9267FADAC6D5F860E0AE4ED78A0546
+  Result:                  PASS
+
+backgrounds/bg_gameplay.png
+  Source:                  gameplay background.jpeg (2752x1536 JPEG). The bg_gameplay.png download is
+                           the same image at 1024x572 and was not used.
+  Pixel dimensions:        1920x1080
+  Color mode:              RGB 8-bit, tagged sRGB
+  Alpha transparency:      no (not required for backgrounds)
+  Transparency verified:   n/a
+  Technical cleanup:       Same as bg_main_menu: JPEG to PNG, uniform scale 0.703125, 10.7 source px
+                           trimmed from each side edge.
+  SHA-256:                 B3F509181286F8A98C86761D35B96115B56DF8C8920C89D945A8B8D0D21F170E
+  Result:                  PASS
+
+backgrounds/bg_level_map.png
+  Source:                  map.jpeg (2752x1536 JPEG)
+  Pixel dimensions:        1920x1080
+  Color mode:              RGB 8-bit, tagged sRGB
+  Alpha transparency:      no (not required for backgrounds)
+  Transparency verified:   n/a
+  Technical cleanup:       Same as bg_main_menu: JPEG to PNG, uniform scale 0.703125, 10.7 source px
+                           trimmed from each side edge.
+  SHA-256:                 24D99116F31A26B58D48ADFB3301FD20BC2DED2B86EF38FF35E22FBB3AB18C91
+  Result:                  PASS
+
+characters/character_tavi_main.png
+  Source:                  tavi.jpeg (2816x1536 JPEG, gray checkerboard baked into the pixels)
+  Pixel dimensions:        1024x1195
+  Color mode:              RGBA 8-bit, tagged sRGB
+  Alpha transparency:      yes, a real alpha channel: 565,448 fully transparent px, 6,295 soft-edge
+                           px, 651,937 opaque px
+  Transparency verified:   yes. The alpha channel was read back from the saved PNG. 0 opaque
+                           checker-gray pixels touch the transparent area (no halo). The corners are
+                           fully transparent. Edges were checked by eye over black, white and magenta
+                           at 3-4x zoom.
+  Technical cleanup:       Baked checkerboard removed. Background = checker-gray pixels connected to the
+                           image border; Tavi's solid dark outline encloses all of the artwork. Edge pixels
+                           got partial alpha by separating them from the local checker gray, so there is
+                           no gray fringe. No artwork pixel inside the outline was changed. Empty canvas
+                           trimmed to the character plus an even 32 px margin, so it stays centered. The
+                           source's JPEG softness is inherent to the download.
+  SHA-256:                 8768A4117BCF8D5E5E0952AD5C38E6D26C68F01F4A40E50A83AB5310B0CDF7EC
+  Result:                  PASS
+
+------------------------------------------------------------------------------------------
+characters/character_nim_main.png                                   NEEDS REVIEW - NOT INCLUDED
+  Source:                  Nim.jpeg (2816x1536 JPEG, 24-bit RGB, no alpha)
+  Problem:                 The gray checkerboard is baked into the pixels AND shows through Nim's
+                           see-through wings, the soft yellow glow and the loose sparkles. Those areas
+                           are a blend of artwork and checkerboard. Their true transparency cannot be
+                           recovered, only guessed. Any cleanup would either leave gray squares
+                           showing through the wings and glow, or erase the glow. Both would change
+                           the approved art.
+  Re-export from Gemini:   "Export the approved Nim character exactly as it is, as a PNG with a real
+                           transparent background (alpha channel), no checkerboard. Keep the glow,
+                           sparkles and see-through wings as partial transparency. At least 2048 px on
+                           the long side."
+
+branding/itabquest_logo_main.png                                    NEEDS REVIEW - NOT INCLUDED
+branding/itabquest_logo_app_icon.png                                NEEDS REVIEW - NOT INCLUDED
+branding/itabquest_logo_horizontal.png                              NEEDS REVIEW - NOT INCLUDED
+  Source:                  logos.jpeg (2816x1536 JPEG, 24-bit RGB, no alpha)
+  Problems:
+   1. It is one presentation sheet, not three logo files. It holds a large logo plus three small
+      variants with captions painted in: "FULL LOGO", "COMPACT APP ICON", "HORIZONTAL HEADER", and
+      repeated captions below them.
+   2. Two different "full logo" designs appear: the large one with a blue shield frame, and the small
+      one labeled FULL LOGO with a purple frame. DECIDED by Michael, 2026-09-18: the PURPLE-framed
+      version is the approved full logo. The large blue-framed version is not approved.
+   3. The checkerboard is baked in, and thin white string lines, sparkles and small notes float over
+      it, so a clean cutout isn't reliable.
+   4. The app icon on the sheet is only about 330 px wide and the horizontal header about 950 px.
+      Both are too small for production; app icons are normally delivered at 1024x1024.
+  Re-export from Gemini as three separate PNG files, each with a real transparent background, no
+  checkerboard and no captions:
+   - Full logo, the PURPLE-framed version (the small one labeled FULL LOGO on the sheet): at least
+     2048 px wide.
+   - App icon: 1024x1024 square, transparent outside the rounded icon shape.
+   - Horizontal header: at least 2400 px wide.
+
+------------------------------------------------------------------------------------------
+QUALITY GATE
+  All 8 files present ........................ NO (4 of 8)
+  Filenames exact ............................ yes, for the 4 present
+  Backgrounds 1920x1080 ...................... yes (3 of 3)
+  Transparent assets have real alpha ......... yes for Tavi; Nim and the 3 logos are missing
+  No checkerboard baked in ................... yes for Tavi; Nim and the 3 logos are missing
+  Nothing important cropped .................. yes. Backgrounds lose ~0.4% of edge width; Tavi lost
+                                               only empty canvas.
+  ZIP opens successfully ..................... yes, all entries extracted and matched by SHA-256
+  Verification report included ............... yes
+  => NOT READY until Nim and the 3 logos are re-exported and pass the same checks.
