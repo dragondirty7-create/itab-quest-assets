@@ -13,6 +13,7 @@ From Claude. Where the iTab Quest art stands, what's decided, and what's waiting
 | Feedback: correct | `ui/ui_feedback_correct.png` | **NEEDS_ALPHA_CLEANUP** |
 | Feedback: try again | `ui/ui_feedback_try_again.png` | **NEEDS_ALPHA_CLEANUP** |
 | Feedback: hint | `ui/ui_feedback_hint.png` | **NEEDS_ALPHA_CLEANUP** |
+| Rewards: 3 stars, treasure chest, 5 badges, 8 stickers | `rewards/reward_*.png` (17 files) | **NEEDS_ALPHA_CLEANUP**; small (stickers ~300 px, badges ~430 px) |
 | Nim | `characters/character_nim_main.png` | **missing**: file not on disk yet |
 | Full logo | `branding/itabquest_logo_main.png` | **missing**: file not on disk yet, and see decision 2 |
 | App icon | `branding/itabquest_logo_app_icon.png` | **missing**: file not on disk yet |
@@ -51,7 +52,8 @@ the repo root under `ui/`. Every file's dimensions, format, alpha status and SHA
 |---|---|
 | Save the re-exported Tavi, Nim, full logo, app icon and horizontal logo as files | Michael |
 | Blue or purple full logo (decision 2) | Michael / Soul |
-| Alpha cleanup of the three feedback poses, and of any other exports that come without real transparency | Michael |
+| Alpha cleanup of the three feedback poses, the 17 reward items, and any other exports that come without real transparency | Michael |
+| Badge names are provisional (Michael: "I'd label them for now as..."). Confirm or rename. | Michael / Soul |
 | Teal buttons: white text on teal is about 2.3:1 contrast, under the 3:1 minimum for bold text. Try dark text (about 8:1) or a dark outline on the white text? | Michael / Soul |
 
 ## Elsewhere, for Soul

@@ -153,6 +153,54 @@ ui/ui_feedback_hint.png
   Result:                  NEEDS_ALPHA_CLEANUP
 
 ------------------------------------------------------------------------------------------
+REWARDS, BADGES AND STICKERS (added 2026-09-18)
+Filed under the same rule: originals untouched, named, marked NEEDS_ALPHA_CLEANUP.
+
+  Source:                  Gemini_Generated_Image_e1pen7e1pen7e1pe.jpeg (2816x1536 JPEG, 24-bit RGB, no
+                           alpha). A "Reward-Art Style Sheet" with 17 items and three painted captions
+                           ("iTab Quest - Reward-Art Style Sheet", "Achievement Badge (No text labels)",
+                           "Sticker Reward (No text labels)"). This sheet's checker grays are lighter,
+                           at luminance ~145 and ~163. The original is kept unchanged at the repo root.
+                           SHA-256 AC3A34ADF754D801AF4C54926A816E5FC293B3FA61A057615EFA5C5E51457D3B
+  How the files were made:
+                           Each item was located automatically (everything that isn't checker gray,
+                           with glows and nearby sparkles joined to their item). It was then cropped
+                           exactly: no resizing, no recoloring, no retouching. Each crop is its item
+                           plus up to 24 px of margin, pulled back to the middle of any gap before it
+                           could reach a neighbor or a caption. Every crop was compared with the
+                           source, and 0 pixels differ. Captions are left out. The tightest gap is
+                           between the treasure chest and the map badge below it (6 px), split down
+                           the middle.
+
+  All 17: RGB 8-bit, tagged sRGB, NO real alpha. The checkerboard is painted in, including under
+  glows, sparkles and the white sticker borders. Transparency was verified as absent. No
+  technical cleanup was done (exact crop only).
+  Result for all 17:       NEEDS_ALPHA_CLEANUP
+
+  File (rewards/)                      Size       Sheet area (x0,y0-x1,y1)   SHA-256
+  reward_star_1.png                    421x418    98,146-518,563             F31E53F65FFE0A408BC255441AD02F61F87E0D5BCC6D40051C9354EAFAA4DCBA
+  reward_star_2.png                    587x434    593,151-1179,584           9E59BE7CFAD28B7B1B8EDE16E136FEF1D2F8862C02192E74B54FBBF9479DBD77
+  reward_star_3.png                    703x479    1208,126-1910,604          528CB4F4936A5259911B04198B6BC8C6C255DF8B3B20764555B62F220BD1F054
+  reward_treasure_chest.png            822x593    1946,72-2767,664           1E152CBDDDBA6EE882A3349A9AF918DFCC80072B22CC476BB4464AB4564F591B
+  reward_badge_treble_flag.png         410x422    101,653-510,1074           8891D1A002D6FD687D172600F95CA02EE67D48022327AFF68C40C2A4EF0E66E9
+  reward_badge_note_wings.png          461x423    557,659-1017,1081          F5C6D5B1A29479866F7785C52383B7C04A976396B7C699FA2CA9F3069323F3A6
+  reward_badge_check_star.png          433x453    1066,626-1498,1078         70CDD7F919095C102FB6753DF399E7DC1F7489B5D968034E85C80FCC270F2F9E
+  reward_badge_scroll_note.png         432x423    1571,665-2002,1087         C30488F96540143FE4115C30118D089BF536B412CD14140E673F434AFD41B153
+  reward_badge_map_notes.png           396x422    2089,665-2484,1086         237E364BE94DB8CA49E7CF9BA4D5DD770E4FAB8B58CF85A3135DAE252D2ECB6A
+  reward_sticker_pick_treble.png       303x341    88,1137-390,1477           66C6830F1545E7F96E81AD1884C765269D3255EB10B6128E304C26BE12147932
+  reward_sticker_note_wings.png        348x311    393,1151-740,1461          10BFD77AEDDEBDF29E73E9AD82FA88602326294E4486D33CD9D2D5A000035AF1
+  reward_sticker_star_round.png        339x341    734,1138-1072,1478         1AD36759894DB5354A569410088DB7FA3BA90DBB2CBE42B3F4596175AF5916C6
+  reward_sticker_chest.png             363x322    1070,1149-1432,1470        A616783D8D78E434D7CD8F517592DABBC7ADBDA4BDE11C714BA254273DFFA1AA
+  reward_sticker_treble_wings.png      307x368    1427,1123-1733,1490        2E19BF8ECBBCCE091FF48D97977E7F8F7746E7E652320FFA14034781544CA7A9
+  reward_sticker_pick_staff.png        312x339    1750,1137-2061,1475        4463EA54C7372B5C8F84891F3D8981388AC11FF7B25A70EFDF21D1DC545BC6E3
+  reward_sticker_rainbow_star.png      278x355    2092,1130-2369,1484        1EBB1E31A890812982DD1DB82D88DD450D5A71F439C65B83F4FAE3D30F3DA669
+  reward_sticker_happy_star.png        361x397    2386,1139-2746,1535        771D823665605A97843E8E0BBB6602C26A3BA47A547C70324DD28C23810F36A0
+
+  Size note: these are small. The stickers are ~280-360 px and the badges ~400-460 px, which is fine
+  for in-game use at normal size, but short of 2x/retina sharpness above about 150-200 px on
+  screen. For larger use, ask Gemini for each one on its own, at 1024 px or more.
+
+------------------------------------------------------------------------------------------
 QUALITY GATE
   All 8 files present ........................ NO (4 of 8)
   Filenames exact ............................ yes, for the 4 present
