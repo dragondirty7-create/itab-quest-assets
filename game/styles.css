@@ -22,7 +22,7 @@ body {
   color: var(--ink);
   background:
     linear-gradient(rgba(13, 8, 28, .38), rgba(13, 8, 28, .56)),
-    url("../itab_quest_approved_assets_v1/backgrounds/bg_gameplay.png") center / cover fixed;
+    url("./itab_quest_approved_assets_v1/backgrounds/bg_gameplay.png") center / cover fixed;
 }
 
 button { font: inherit; }
